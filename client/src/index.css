@@ -1,0 +1,243 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom 3D and Glassmorphism Styles */
+@keyframes gradient-x {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 107, 53, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(255, 107, 53, 0.6); }
+}
+
+@keyframes pulse-border {
+  0%, 100% { border-color: rgba(255, 107, 53, 0.3); }
+  50% { border-color: rgba(255, 107, 53, 0.8); }
+}
+
+:root {
+  --background: hsl(210, 20%, 8%);
+  --foreground: hsl(30, 15%, 92%);
+  --card: hsl(210, 18%, 12%);
+  --card-foreground: hsl(30, 15%, 92%);
+  --popover: hsl(210, 18%, 12%);
+  --popover-foreground: hsl(30, 15%, 92%);
+  --primary: hsl(24, 96%, 53%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(210, 15%, 20%);
+  --secondary-foreground: hsl(30, 15%, 85%);
+  --muted: hsl(210, 15%, 15%);
+  --muted-foreground: hsl(30, 8%, 65%);
+  --accent: hsl(30, 85%, 58%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(356, 90%, 54%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(210, 15%, 20%);
+  --input: hsl(210, 15%, 18%);
+  --ring: hsl(24, 96%, 53%);
+  --chart-1: hsl(24, 96%, 53%);
+  --chart-2: hsl(159, 100%, 36%);
+  --chart-3: hsl(42, 93%, 56%);
+  --chart-4: hsl(147, 79%, 42%);
+  --chart-5: hsl(341, 75%, 51%);
+  --sidebar: hsl(222, 84%, 8%);
+  --sidebar-foreground: hsl(210, 40%, 98%);
+  --sidebar-primary: hsl(24, 96%, 53%);
+  --sidebar-primary-foreground: hsl(210, 40%, 98%);
+  --sidebar-accent: hsl(217, 33%, 17%);
+  --sidebar-accent-foreground: hsl(210, 40%, 98%);
+  --sidebar-border: hsl(217, 33%, 17%);
+  --sidebar-ring: hsl(24, 96%, 53%);
+  --font-sans: Inter, system-ui, -apple-system, sans-serif;
+  --font-serif: Georgia, serif;
+  --font-mono: Menlo, monospace;
+  --radius: 0.75rem;
+}
+
+.light {
+  --background: hsl(30, 30%, 97%);
+  --foreground: hsl(210, 25%, 8%);
+  --card: hsl(30, 25%, 100%);
+  --card-foreground: hsl(210, 25%, 8%);
+  --popover: hsl(30, 25%, 100%);
+  --popover-foreground: hsl(210, 25%, 8%);
+  --primary: hsl(24, 96%, 53%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(30, 15%, 90%);
+  --secondary-foreground: hsl(210, 25%, 15%);
+  --muted: hsl(30, 12%, 88%);
+  --muted-foreground: hsl(210, 15%, 45%);
+  --accent: hsl(30, 85%, 58%);
+  --accent-foreground: hsl(210, 25%, 8%);
+  --destructive: hsl(356, 90%, 54%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(30, 15%, 85%);
+  --input: hsl(30, 15%, 88%);
+  --ring: hsl(24, 96%, 53%);
+  --sidebar: hsl(0, 0%, 100%);
+  --sidebar-foreground: hsl(222, 84%, 5%);
+  --sidebar-primary: hsl(24, 96%, 53%);
+  --sidebar-primary-foreground: hsl(210, 40%, 98%);
+  --sidebar-accent: hsl(210, 40%, 96%);
+  --sidebar-accent-foreground: hsl(222, 84%, 5%);
+  --sidebar-border: hsl(214, 32%, 91%);
+  --sidebar-ring: hsl(24, 96%, 53%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .glassmorphism {
+    background: rgba(255, 165, 100, 0.08);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 165, 100, 0.15);
+    box-shadow: 0 8px 32px rgba(255, 107, 53, 0.08);
+  }
+
+  .glassmorphism-button {
+    background: rgba(255, 107, 53, 0.15);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 2px solid rgba(255, 107, 53, 0.3);
+    box-shadow: 0 8px 32px rgba(255, 107, 53, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .glassmorphism-button:hover {
+    background: rgba(255, 107, 53, 0.25);
+    border-color: rgba(255, 107, 53, 0.6);
+    box-shadow: 0 12px 40px rgba(255, 107, 53, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .glassmorphism-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .glassmorphism-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 107, 53, 0.4);
+    box-shadow: 0 12px 40px rgba(255, 107, 53, 0.15);
+    transform: translateY(-4px);
+  }
+
+  .dark .glassmorphism {
+    background: rgba(30, 30, 35, 0.3);
+    border: 1px solid rgba(255, 165, 100, 0.12);
+  }
+
+  .dark .glassmorphism-card {
+    background: rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .dark .glassmorphism-card:hover {
+    background: rgba(0, 0, 0, 0.25);
+    border-color: rgba(255, 107, 53, 0.3);
+  }
+
+  .navbar-blur {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .dark .navbar-blur {
+    background: rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, var(--background) 0%, var(--muted) 100%);
+  }
+
+  .chat-bubble-user {
+    background: linear-gradient(135deg, var(--primary) 0%, hsl(30, 100%, 60%) 100%);
+    color: var(--primary-foreground);
+  }
+
+  .chat-bubble-ai {
+    background: var(--muted);
+    color: var(--muted-foreground);
+    border: 1px solid var(--border);
+  }
+
+  .progress-bar {
+    background: linear-gradient(90deg, var(--primary) 0%, hsl(30, 100%, 60%) 100%);
+  }
+}
+
+@layer utilities {
+  .floating-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-gradient-x {
+    animation: gradient-x 3s ease infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite;
+  }
+
+  .animate-pulse-border {
+    animation: pulse-border 2s ease-in-out infinite;
+  }
+
+  .tilt-card {
+    transition: transform 0.3s ease;
+  }
+
+  .tilt-card:hover {
+    transform: perspective(1000px) rotateX(5deg) rotateY(5deg) scale(1.05);
+  }
+
+  .fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  .slide-up {
+    animation: slideUp 0.5s ease-out;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
