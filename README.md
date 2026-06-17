@@ -115,6 +115,3 @@ This project is fully containerized-ready and serverless-compatible. It can be d
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License.
