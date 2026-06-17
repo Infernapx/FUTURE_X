@@ -47,19 +47,12 @@ cd FUTURE_X
 ### 2. Set Up Environment Variables
 
 Create a `.env` file in the root directory:
-```bash
-# Gemini AI Key (Get from: https://aistudio.google.com/app/apikey)
+```env
 GOOGLE_API_KEY=your_gemini_api_key
-
-# Google OAuth Client ID (Get from: https://console.cloud.google.com/apis/credentials)
 GOOGLE_CLIENT_ID=your_google_oauth_client_id
 VITE_GOOGLE_CLIENT_ID=your_google_oauth_client_id
-
-# Database Connection (PostgreSQL connection string)
-DATABASE_URL=your_postgresql_database_url
-
-# Express session secret (Any random string)
-SESSION_SECRET=your_random_secret_key
+DATABASE_URL=your_postgresql_connection_string
+SESSION_SECRET=your_session_encryption_secret
 ```
 
 ### 3. Install Dependencies & Database Setup
@@ -77,7 +70,7 @@ npm run db:push
 ```bash
 npm run dev
 ```
-The app will start running at **`http://localhost:5000`**.
+The application will start running locally at **`http://localhost:5000`**.
 
 ---
 
@@ -103,21 +96,21 @@ The app will start running at **`http://localhost:5000`**.
 
 ## ☁️ Deployment
 
-### Serverless Vercel Deployment
+This project is fully containerized-ready and serverless-compatible. It can be deployed on any cloud platform supporting Node.js runtime environment (such as AWS, Google Cloud, Render, Railway, Vercel, or Heroku).
 
-1. Make sure you have the [Vercel CLI](https://vercel.com/cli) installed:
+### General Steps:
+1. Configure your host environment with the required environment variables:
+   - `GOOGLE_API_KEY`
+   - `GOOGLE_CLIENT_ID`
+   - `DATABASE_URL`
+   - `SESSION_SECRET`
+2. Build the production application bundle:
    ```bash
-   npm i -g vercel
+   npm run build
    ```
-2. Link your project to Vercel:
+3. Launch the production server:
    ```bash
-   vercel login
-   vercel link
-   ```
-3. Set your environment variables (`GOOGLE_API_KEY`, `GOOGLE_CLIENT_ID`, `DATABASE_URL`, `SESSION_SECRET`) in your Vercel Dashboard.
-4. Deploy:
-   ```bash
-   vercel --prod
+   npm run start
    ```
 
 ---
