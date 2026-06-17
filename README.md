@@ -50,9 +50,8 @@ Create a `.env` file in the root directory:
 ```env
 GOOGLE_API_KEY=your_gemini_api_key
 GOOGLE_CLIENT_ID=your_google_oauth_client_id
-VITE_GOOGLE_CLIENT_ID=your_google_oauth_client_id
 DATABASE_URL=your_postgresql_connection_string
-SESSION_SECRET=your_session_encryption_secret
+
 ```
 
 ### 3. Install Dependencies & Database Setup
